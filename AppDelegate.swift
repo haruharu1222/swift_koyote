@@ -10,6 +10,11 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var psum:Int = 0
+    var loser:Int = 0
+    var player_card = [Int](repeating: 2, count: 4)
+    var koyote_number:Int = 0
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
