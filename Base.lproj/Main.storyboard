@@ -159,7 +159,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zzu-PW-hkD">
-                                <rect key="frame" x="97.000000000000014" y="350" width="220.33333333333337" height="36"/>
+                                <rect key="frame" x="97" y="350" width="220.33333333333337" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなた" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWr-Rn-CeM">
                                         <rect key="frame" x="0.0" y="0.0" width="91" height="36"/>
@@ -175,13 +175,14 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Zkh-gc-Dq2">
-                                <rect key="frame" x="124.33333333333333" y="406" width="165.33333333333337" height="182"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zkh-gc-Dq2">
+                                <rect key="frame" x="120.66666666666669" y="406" width="172.66666666666663" height="185"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="答えを入力" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIF-oS-dju">
-                                        <rect key="frame" x="3" y="0.0" width="159.66666666666666" height="49.333333333333336"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="答えを入力してね！" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIF-oS-dju">
+                                        <rect key="frame" x="3.6666666666666572" y="0.0" width="165.33333333333334" height="51"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="PIF-oS-dju" secondAttribute="height" multiplier="159:49" id="ij9-zu-Htt"/>
+                                            <constraint firstAttribute="width" constant="165.33000000000001" id="6Fs-oP-hoP"/>
+                                            <constraint firstAttribute="height" constant="51" id="zpr-Cp-2fc"/>
                                         </constraints>
                                         <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -191,9 +192,10 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Va1-wn-c89">
-                                        <rect key="frame" x="2" y="70.333333333333314" width="161.33333333333334" height="43.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="71" width="172.66666666666666" height="47"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="Va1-wn-c89" secondAttribute="height" multiplier="158:43" id="Tma-2E-KaM"/>
+                                            <constraint firstAttribute="height" constant="47" id="5xE-Ue-JRm"/>
+                                            <constraint firstAttribute="width" constant="172.66999999999999" id="a4u-Vo-Kz5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="答えを送信" backgroundImage="button.png"/>
@@ -202,20 +204,21 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Sy-PG-bVN">
-                                        <rect key="frame" x="3.6666666666666714" y="135" width="158" height="47"/>
+                                        <rect key="frame" x="7.3333333333333286" y="138" width="158" height="47"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="9Sy-PG-bVN" secondAttribute="height" multiplier="158:47" id="eXh-Nw-Ukj"/>
+                                            <constraint firstAttribute="height" constant="47" id="dWA-JK-ajY"/>
+                                            <constraint firstAttribute="width" constant="158" id="uWE-Rw-Ia4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="コヨーテ" backgroundImage="button.png"/>
                                         <connections>
                                             <action selector="koyote:" destination="2kl-BQ-88c" eventType="touchUpInside" id="2He-jB-WqZ"/>
-                                            <segue destination="37f-4F-Dl0" kind="presentation" id="Qhu-xn-rnO"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Zkh-gc-Dq2" secondAttribute="height" multiplier="1:1.1" id="H5w-rO-kWa"/>
+                                    <constraint firstAttribute="height" constant="185" id="SXb-1W-Y0r"/>
+                                    <constraint firstAttribute="width" constant="172.66999999999999" id="i9n-uV-EbB"/>
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_nasi.png" translatesAutoresizingMaskIntoConstraints="NO" id="PUc-OG-w89">
@@ -274,9 +277,8 @@
                             <constraint firstItem="xNL-MZ-LW0" firstAttribute="top" secondItem="pUV-c8-k7m" secondAttribute="top" constant="10" id="0sw-gK-ygf"/>
                             <constraint firstItem="s8L-K2-Ye9" firstAttribute="top" secondItem="pUV-c8-k7m" secondAttribute="top" constant="40" id="7Si-bv-hQT"/>
                             <constraint firstItem="pUV-c8-k7m" firstAttribute="trailing" secondItem="Rcz-on-xKo" secondAttribute="trailing" constant="25" id="Asr-N0-ys0"/>
+                            <constraint firstItem="C7y-6r-QXH" firstAttribute="top" secondItem="Zkh-gc-Dq2" secondAttribute="bottom" constant="21.670000000000002" id="N7Y-7C-JPG"/>
                             <constraint firstItem="pUV-c8-k7m" firstAttribute="trailing" secondItem="fnc-dy-xFf" secondAttribute="trailing" constant="10" id="NTu-yB-7kn"/>
-                            <constraint firstItem="Zkh-gc-Dq2" firstAttribute="width" secondItem="OVu-3M-dMx" secondAttribute="width" multiplier="0.4" id="NrS-eG-Dbn"/>
-                            <constraint firstItem="Zkh-gc-Dq2" firstAttribute="top" secondItem="zzu-PW-hkD" secondAttribute="bottom" constant="20" id="O5f-nU-8KY"/>
                             <constraint firstItem="PUc-OG-w89" firstAttribute="width" secondItem="OVu-3M-dMx" secondAttribute="width" multiplier="0.3" id="PWL-O9-whv"/>
                             <constraint firstItem="Zkh-gc-Dq2" firstAttribute="centerX" secondItem="OVu-3M-dMx" secondAttribute="centerX" id="Plg-PK-H1X"/>
                             <constraint firstItem="pUV-c8-k7m" firstAttribute="bottom" secondItem="8yk-tW-W6f" secondAttribute="bottom" constant="10" id="QYI-DJ-vKt"/>
@@ -290,6 +292,7 @@
                             <constraint firstItem="xNL-MZ-LW0" firstAttribute="width" secondItem="OVu-3M-dMx" secondAttribute="width" multiplier="0.2" id="fcP-Gn-7fr"/>
                             <constraint firstItem="xNL-MZ-LW0" firstAttribute="centerX" secondItem="OVu-3M-dMx" secondAttribute="centerX" id="gbA-y5-5Ib"/>
                             <constraint firstItem="C7y-6r-QXH" firstAttribute="centerX" secondItem="OVu-3M-dMx" secondAttribute="centerX" id="jSE-ij-ZXu"/>
+                            <constraint firstItem="Zkh-gc-Dq2" firstAttribute="top" secondItem="zzu-PW-hkD" secondAttribute="bottom" constant="20" id="mg7-HR-fNa"/>
                             <constraint firstItem="zzu-PW-hkD" firstAttribute="centerX" secondItem="OVu-3M-dMx" secondAttribute="centerX" id="nTU-8a-9xi"/>
                             <constraint firstItem="7j0-VQ-ifc" firstAttribute="top" secondItem="pUV-c8-k7m" secondAttribute="top" constant="247" id="pt1-wc-ejz"/>
                             <constraint firstItem="pUV-c8-k7m" firstAttribute="bottom" secondItem="C7y-6r-QXH" secondAttribute="bottom" constant="5" id="rmt-tr-CFW"/>
@@ -306,6 +309,7 @@
                         <outlet property="image_pzero" destination="C7y-6r-QXH" id="0K6-Of-orA"/>
                         <outlet property="kotae_field" destination="PIF-oS-dju" id="vFY-Bc-XT9"/>
                         <outlet property="nowNumber" destination="xNL-MZ-LW0" id="ltv-2W-dqQ"/>
+                        <segue destination="37f-4F-Dl0" kind="presentation" identifier="toResult" id="ple-TT-SXU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oaj-82-cDD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

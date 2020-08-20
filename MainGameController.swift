@@ -24,7 +24,7 @@ extension UIViewController {
 
 
 
-class MainGameController: UIViewController {
+class MainGameController: UIViewController, UITextFieldDelegate {
     
     var appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate //AppDelegateのインスタンスを取得　
     
@@ -67,7 +67,6 @@ class MainGameController: UIViewController {
     
     //結果関係
     var loser:Int = 0
-    var gameset:Int = 0
     
     
     /*
@@ -230,8 +229,27 @@ class MainGameController: UIViewController {
         }
    }
     
+
+    //数字のみを受け付ける
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let aSet = NSCharacterSet(charactersIn:"0123456789").inverted
+        let compSepByCharInSet = string.components(separatedBy: aSet)
+        let numberFiltered = compSepByCharInSet.joined(separator: "")
+        return string == numberFiltered
+    }
     
-  
+    //returnキーでキーボード閉じる
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        //outputText.text = textField.text
+        return true
+    }
+    
+    
+    
+    
+    
+    
     
     
     
@@ -248,6 +266,8 @@ class MainGameController: UIViewController {
         
 
         hideKeyboardWhenTappedAround()
+        
+        kotae_field.delegate = self
         
         HandoutCard()
 
@@ -267,6 +287,8 @@ class MainGameController: UIViewController {
     }
     */
 
+ 
+    
   
     
     
@@ -275,36 +297,47 @@ class MainGameController: UIViewController {
 ////////////////////////////////////////////////////////////////////////
     
     @IBAction func inputText(_ sender: UITextField) {
-        kotaeFieldString = kotae_field.text!
-        kotaeFieldInt = Int(kotae_field.text!)!
-        is_input = 1
-
         //test
         //MyLabel.text = nowNumber.currentTitle;
     }
 
+    
 
 ////////////////////////////////////////////////////////////////////////
 //答えを送信ボタンの処理
 ////////////////////////////////////////////////////////////////////////
     
     @IBAction func answer(_ sender: Any) {
-        if is_input == 1{
+        
+        if kotae_field.text! == ""{
+           kotae_field.placeholder = "入力して！"
+        }else{
             nowNumberString = nowNumber.currentTitle
+            kotaeFieldString = kotae_field.text!
+            kotaeFieldInt = Int(kotae_field.text!)!
+            
             if nowNumberString != nil {
                 nowNumberInt = Int(nowNumberString!)!
-                if nowNumberInt<kotaeFieldInt {
+             
+                if kotaeFieldInt > 70 {
+                    kotae_field.placeholder = "大きすぎる！"
+                }else if kotaeFieldInt < -30{
+                    kotae_field.placeholder = "小さすぎる！"
+                }else if nowNumberInt<kotaeFieldInt {
                     nowNumber.setTitle(kotaeFieldString, for: .normal)
+                    kotae_field.placeholder = "答えを入力"
                 }else{
-                    kotae_field.text=nil
-                    kotae_field.placeholder = "小さすぎ！"
-                }
+                    kotae_field.text = nil
+                    kotae_field.placeholder = "上の数より大きく！"
+                  }
             }else{
                 nowNumber.setTitle(kotaeFieldString, for: .normal)
+                kotae_field.placeholder = "答えを入力"
             }
-        }else{
-            kotae_field.placeholder = "入力して！"
         }
+        
+        //入力フォームの中身を初期化
+        kotae_field.text = nil
     }
     
   
@@ -313,31 +346,18 @@ class MainGameController: UIViewController {
 ////////////////////////////////////////////////////////////////////////
 
     @IBAction func koyote(_ sender: Any) {
-        appDelegate.loser = WhoLose(nowplayerid)
         nowNumberString = nowNumber.currentTitle
-        appDelegate.koyote_number =  Int(nowNumberString!)!
-        /*
-        //自分のカードを公開する．
-        image_pzero.image = UIImage(named: WhichImage(appDelegate.player_card[0]))
-        //はてながあれば公開する．
-        if selected_card[13] > 0{
-            if player_hatena == 0{
-                image_pzero.image = UIImage(named: WhichImage(replace_hatena))
-            }else if player_hatena ==  1{
-                image_pone.image = UIImage(named: WhichImage(replace_hatena))
-            }else if player_hatena == 2{
-                image_ptwo.image = UIImage(named: WhichImage(replace_hatena))
-            }else{
-                //image_pthree.image = UIImage(named: WhichImage(replace_hatena))
-            }
-        }
         
-        //appDelegate.psum = psum //appDelegateの変数を操作
-
-        loser = WhoLose(nowplayerid)
-        MyLabel.text = "プレイヤーの合計は\(psum)です．負けたのは，\(loser)です．"
- */
-        gameset = 1
+        //リザルト画面へ
+        if nowNumberString != nil{
+            appDelegate.loser = WhoLose(nowplayerid)
+            appDelegate.koyote_number =  Int(nowNumberString!)!
+            
+            //画面遷移
+            self.performSegue(withIdentifier: "toResult", sender: nil)
+        }else{
+            kotae_field.placeholder = "最初の数字！"
+        }
     }
     
     
@@ -348,12 +368,5 @@ override func didReceiveMemoryWarning() {
        super.didReceiveMemoryWarning()
        // Dispose of any resources that can be recreated.
 }
-    
-//Enterを押したらキーボードが閉じるようにするためのコードです。
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-
-        return false
-    }
     
 }
