@@ -159,7 +159,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zzu-PW-hkD">
-                                <rect key="frame" x="97" y="350" width="220.33333333333337" height="36"/>
+                                <rect key="frame" x="97.000000000000014" y="350" width="220.33333333333337" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなた" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWr-Rn-CeM">
                                         <rect key="frame" x="0.0" y="0.0" width="91" height="36"/>
@@ -176,7 +176,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zkh-gc-Dq2">
-                                <rect key="frame" x="120.66666666666669" y="406" width="172.66666666666663" height="185"/>
+                                <rect key="frame" x="120.66666666666667" y="406" width="172.66666666666663" height="185"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="答えを入力してね！" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PIF-oS-dju">
                                         <rect key="frame" x="3.6666666666666572" y="0.0" width="165.33333333333334" height="51"/>
@@ -381,6 +381,9 @@
                                         <rect key="frame" x="0.0" y="94" width="158" height="47"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="もう一度" backgroundImage="button.png"/>
+                                        <connections>
+                                            <segue destination="ecC-tm-J5k" kind="presentation" id="4jN-Jz-CP9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -419,9 +422,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHz-tV-TTY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2714.4927536231885" y="136.95652173913044"/>
+            <point key="canvasLocation" x="1404" y="961"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="4jN-Jz-CP9"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="button.png" width="158" height="47"/>
         <image name="card_nasi.png" width="144" height="210"/>
